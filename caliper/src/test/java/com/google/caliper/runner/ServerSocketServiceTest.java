@@ -102,7 +102,7 @@ public class ServerSocketServiceTest {
   }
 
   private OpenedSocket openClientConnection() throws IOException {
-    return OpenedSocket.fromSocket(new Socket(InetAddress.getLoopbackAddress(), port));
+    return OpenedSocket.fromSocket(new Socket(InetAddress.getLocalHost(), port));
   }
 
   /**
