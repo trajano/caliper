@@ -27,10 +27,12 @@ abstract class AllocationRecorder {
   private boolean firstTime = true;
   
   /** 
-   * Clears the prior state and starts a new recording.
+   * Clears the prior state and starts a new recording.  Supressing warnings on object created
+   * that is not used. 
    * 
    * @throws IllegalStateException if the recording infrastructure is misconfigured.
    */
+  @SuppressWarnings("unused")
   final void startRecording() {
     if (firstTime) {
       Object obj;
