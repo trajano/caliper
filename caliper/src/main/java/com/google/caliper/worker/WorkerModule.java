@@ -50,7 +50,6 @@ final class WorkerModule extends AbstractModule {
   private final int port;
   private final ImmutableMap<String, String> workerOptions;
 
-  @SuppressWarnings("unchecked")
   WorkerModule(WorkerSpec workerSpec) {
     try {
       this.workerClass = Class.forName(workerSpec.workerClassName).asSubclass(Worker.class);

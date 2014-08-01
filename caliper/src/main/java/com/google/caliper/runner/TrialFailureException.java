@@ -23,6 +23,7 @@ package com.google.caliper.runner;
  *
  * <p>The exception message is used to convey the nature of the failure to the user.
  */
+@SuppressWarnings("serial")
 final class TrialFailureException extends RuntimeException {
   public TrialFailureException(String message) {
     super(message);

@@ -41,6 +41,7 @@ import java.util.Set;
  * intermediaries.
  */
 final class ImmutableMultimapTypeAdapterFactory implements TypeAdapterFactory {
+  @SuppressWarnings("serial")
   private static <K, V> TypeToken<Map<K, List<V>>> getMapOfListsToken(
       TypeToken<ListMultimap<K, V>> from) {
     ParameterizedType rawType = (ParameterizedType) from.getSupertype(ListMultimap.class).getType();
@@ -53,6 +54,7 @@ final class ImmutableMultimapTypeAdapterFactory implements TypeAdapterFactory {
         .where(new TypeParameter<V>() {}, valueType);
   }
 
+  @SuppressWarnings("serial")
   private static <K, V> TypeToken<Map<K, Set<V>>> getMapOfSetsToken(
       TypeToken<SetMultimap<K, V>> from) {
     ParameterizedType rawType = (ParameterizedType) from.getSupertype(SetMultimap.class).getType();

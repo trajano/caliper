@@ -23,6 +23,7 @@ import java.io.PrintWriter;
  *
  * @author gak@google.com (Gregory Kick)
  */
+@SuppressWarnings("serial")
 public final class InvalidConfigurationException extends Exception {
   public InvalidConfigurationException() {
     super();

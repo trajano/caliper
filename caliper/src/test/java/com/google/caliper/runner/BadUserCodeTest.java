@@ -73,7 +73,7 @@ public class BadUserCodeTest {
   }
 
   static class ExceptionInMethodBenchmark {
-    @Benchmark void timeSomething(@SuppressWarnings("unused") int reps) {
+    @Benchmark void timeSomething(int reps) {
       throw new RuntimeException();
     }
   }
@@ -153,7 +153,7 @@ public class BadUserCodeTest {
     static int timeCount = 0;
     // We dump items into this list so the jit cannot remove the allocations
     static List<Object> list = Lists.newArrayList();
-    @Benchmark int timeSomethingFBZ(@SuppressWarnings("unused") int reps) {
+    @Benchmark int timeSomethingFBZ(int reps) {
       timeCount++;
       if (timeCount % 2 == 0) {
         list.add(new Object());
@@ -191,7 +191,7 @@ public class BadUserCodeTest {
   /** Benchmark allocates the same number of things each time but in a different way. */
   static class ComplexNonDeterministicAllocationBenchmark {
     static int timeCount = 0;
-    @Benchmark int timeSomethingFBZ(@SuppressWarnings("unused") int reps) {
+    @Benchmark int timeSomethingFBZ(int reps) {
       // We dump items into this list so the jit cannot remove the allocations
       List<Object> list = Lists.newArrayList();
       timeCount++;

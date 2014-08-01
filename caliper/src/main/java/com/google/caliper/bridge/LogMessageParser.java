@@ -40,7 +40,6 @@ final class LogMessageParser implements Parser<LogMessage> {
   private final Gson gson;
   private final ImmutableBiMap<Class<? extends CaliperControlLogMessage>, String> typeMap;
 
-  @SuppressWarnings("unchecked")
   @Inject LogMessageParser(Gson gson) {
     this.gson = gson;
     this.typeMap = createMapForTypes(ImmutableSet.of(

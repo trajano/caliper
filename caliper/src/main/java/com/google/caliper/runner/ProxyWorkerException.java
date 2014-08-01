@@ -24,6 +24,7 @@ import com.google.common.base.Splitter;
  * An exception created on the runner with the same stack trace as one thrown on the worker that
  * reports the actual exception class and message in its message.
  */
+@SuppressWarnings("serial")
 final class ProxyWorkerException extends RuntimeException {
   ProxyWorkerException(String stackTrace) {
     super(formatMesssage(stackTrace));
