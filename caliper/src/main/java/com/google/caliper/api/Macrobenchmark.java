@@ -17,8 +17,6 @@ package com.google.caliper.api;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-import com.google.common.annotations.Beta;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -34,5 +32,4 @@ import java.lang.annotation.Target;
  */
 @Retention(RUNTIME)
 @Target(METHOD)
-@Beta
 public @interface Macrobenchmark {}
