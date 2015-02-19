@@ -19,6 +19,20 @@ package com.google.caliper.runner;
 import static java.util.logging.Level.SEVERE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 
+import java.io.PrintWriter;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.UUID;
+import java.util.logging.Logger;
+
+import javax.annotation.Nullable;
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.ResponseProcessingException;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+
 import com.google.caliper.api.ResultProcessor;
 import com.google.caliper.config.InvalidConfigurationException;
 import com.google.caliper.config.ResultProcessorConfig;
@@ -28,19 +42,6 @@ import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
-
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientHandlerException;
-import com.sun.jersey.api.client.UniformInterfaceException;
-import com.sun.jersey.api.client.WebResource;
-
-import java.io.PrintWriter;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.UUID;
-import java.util.logging.Logger;
-
-import javax.annotation.Nullable;
 
 /**
  * {@link ResultProcessor} implementation that uploads the JSON-serialized results to the Caliper
@@ -94,22 +95,22 @@ abstract class ResultsUploader implements ResultProcessor {
 
   @Override public final void processTrial(Trial trial) {
     if (uploadUri.isPresent()) {
-      WebResource resource = client.resource(uploadUri.get());
+      WebTarget resource = client.target(uploadUri.get());
       if (apiKey.isPresent()) {
         resource = resource.queryParam("key", apiKey.get().toString());
       }
       boolean threw = true;
       try {
         // TODO(gak): make the json part happen automagically
-        resource.type(APPLICATION_JSON_TYPE).post(gson.toJson(ImmutableList.of(trial)));
+        resource.request(MediaType.APPLICATION_JSON).post(Entity.<String>json(gson.toJson(ImmutableList.of(trial))));
         // only set the run id if a result has been successfully uploaded
         runId = Optional.of(trial.run().id());
         threw = false;
-      } catch (ClientHandlerException e) {
-        logUploadFailure(trial, e);
-      } catch (UniformInterfaceException e) {
+      } catch (ResponseProcessingException e) {
         logUploadFailure(trial, e);
         logger.fine("Failed upload response: " + e.getResponse().getStatus());
+      } catch (ProcessingException e) {
+          logUploadFailure(trial, e);
       } finally {
         failure |= threw;
       }

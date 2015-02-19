@@ -16,16 +16,16 @@
 
 package com.google.caliper.runner;
 
+import java.io.PrintWriter;
+
+import javax.ws.rs.client.ClientBuilder;
+
 import com.google.caliper.api.ResultProcessor;
 import com.google.caliper.config.CaliperConfig;
 import com.google.caliper.config.InvalidConfigurationException;
 import com.google.caliper.util.Stdout;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
-
-import com.sun.jersey.api.client.Client;
-
-import java.io.PrintWriter;
 
 /**
  * A {@link ResultProcessor} implementation that publishes results to the webapp using an HTTP
@@ -34,6 +34,6 @@ import java.io.PrintWriter;
 public class HttpUploader extends ResultsUploader {
   @Inject HttpUploader(@Stdout PrintWriter stdout, Gson gson, CaliperConfig config)
       throws InvalidConfigurationException {
-    super(stdout, gson, Client.create(), config.getResultProcessorConfig(HttpUploader.class));
+    super(stdout, gson, ClientBuilder.newClient(), config.getResultProcessorConfig(HttpUploader.class));
   }
 }
