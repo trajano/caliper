@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>caliper - Project Build Plugins</title>
+    <title>caliper - Project Dependency Management</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -52,87 +52,115 @@
 	    <article class="page type-page status-publish hentry">
 	      <div class="entry-content">
                 <div class="section">
-<h2>Project Build Plugins<a name="Project_Build_Plugins"></a></h2><a name="Project_Build_Plugins"></a>
-<table border="0" class="bodyTable">
-<tr class="a">
-<th>GroupId</th>
-<th>ArtifactId</th>
-<th>Version</th></tr>
-<tr class="b">
-<td>net.trajano.mojo</td>
-<td><a class="externalLink" href="http://site.trajano.net/trajano/cleanpom-maven-plugin/">cleanpom-maven-plugin</a></td>
-<td>1.0.3</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-clean-plugin/">maven-clean-plugin</a></td>
-<td>2.5</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-compiler-plugin/">maven-compiler-plugin</a></td>
-<td>3.1</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-deploy-plugin/">maven-deploy-plugin</a></td>
-<td>2.8.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-eclipse-plugin/">maven-eclipse-plugin</a></td>
-<td>2.9</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/enforcer/maven-enforcer-plugin">maven-enforcer-plugin</a></td>
-<td>1.2</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-install-plugin/">maven-install-plugin</a></td>
-<td>2.5.1</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-jar-plugin/">maven-jar-plugin</a></td>
-<td>2.4</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-javadoc-plugin/">maven-javadoc-plugin</a></td>
-<td>2.9.1</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/maven-release/maven-release-plugin/">maven-release-plugin</a></td>
-<td>2.5</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-resources-plugin/">maven-resources-plugin</a></td>
-<td>2.6</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-shade-plugin/">maven-shade-plugin</a></td>
-<td>2.3</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-site-plugin/">maven-site-plugin</a></td>
-<td>3.3</td></tr>
-<tr class="a">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-source-plugin/">maven-source-plugin</a></td>
-<td>2.2.1</td></tr>
-<tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/surefire/maven-surefire-plugin">maven-surefire-plugin</a></td>
-<td>2.18.1</td></tr></table></div>
+<h2>Project Dependency Management<a name="Project_Dependency_Management"></a></h2><a name="Project_Dependency_Management"></a>
 <div class="section">
-<h2>Project Report Plugins<a name="Project_Report_Plugins"></a></h2><a name="Project_Report_Plugins"></a>
+<h3>compile<a name="compile"></a></h3><a name="compile"></a>
+<p>The following is a list of compile dependencies in the DependencyManagement of this project. These dependencies can be included in the submodules to compile and run the submodule:</p>
 <table border="0" class="bodyTable">
 <tr class="a">
 <th>GroupId</th>
 <th>ArtifactId</th>
-<th>Version</th></tr>
+<th>Version</th>
+<th>Type</th>
+<th>License</th></tr>
 <tr class="b">
-<td>org.apache.maven.plugins</td>
-<td><a class="externalLink" href="http://maven.apache.org/plugins/maven-project-info-reports-plugin/">maven-project-info-reports-plugin</a></td>
-<td>2.7</td></tr>
+<td>com.google.code.gson</td>
+<td><a class="externalLink" href="http://code.google.com/p/google-gson/">gson</a></td>
+<td>2.3.1</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
 <tr class="a">
-<td>org.codehaus.mojo</td>
-<td><a class="externalLink" href="http://mojo.codehaus.org/versions-maven-plugin">versions-maven-plugin</a></td>
-<td>2.1</td></tr></table></div>
+<td>com.google.code.java-allocation-instrumenter</td>
+<td><a class="externalLink" href="https://github.com/google/allocation-instrumenter/">java-allocation-instrumenter</a></td>
+<td>3.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>com.google.guava</td>
+<td><a class="externalLink" href="http://code.google.com/p/guava-libraries/guava">guava</a></td>
+<td>18.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>com.google.inject</td>
+<td><a class="externalLink" href="http://code.google.com/p/google-guice/guice/">guice</a></td>
+<td>3.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>com.google.inject.extensions</td>
+<td><a class="externalLink" href="http://code.google.com/p/google-guice/extensions-parent/guice-assistedinject/">guice-assistedinject</a></td>
+<td>3.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>com.google.inject.extensions</td>
+<td><a class="externalLink" href="http://code.google.com/p/google-guice/extensions-parent/guice-multibindings/">guice-multibindings</a></td>
+<td>3.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>joda-time</td>
+<td><a class="externalLink" href="http://www.joda.org/joda-time/">joda-time</a></td>
+<td>2.7</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache 2</a></td></tr>
+<tr class="a">
+<td>org.apache.commons</td>
+<td><a class="externalLink" href="http://commons.apache.org/math/">commons-math</a></td>
+<td>2.2</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="b">
+<td>org.glassfish.jersey.core</td>
+<td><a class="externalLink" href="https://jersey.java.net/jersey-client/">jersey-client</a></td>
+<td>2.16</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://glassfish.java.net/public/CDDL+GPL_1_1.html">CDDL+GPL License</a></td></tr></table></div>
+<div class="section">
+<h3>test<a name="test"></a></h3><a name="test"></a>
+<p>The following is a list of test dependencies in the DependencyManagement of this project. These dependencies can be included in the submodules to compile and run unit tests for the submodule:</p>
+<table border="0" class="bodyTable">
+<tr class="a">
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Type</th>
+<th>License</th></tr>
+<tr class="b">
+<td>junit</td>
+<td><a class="externalLink" href="http://junit.org">junit</a></td>
+<td>4.12</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License 1.0</a></td></tr>
+<tr class="a">
+<td>org.mockito</td>
+<td><a class="externalLink" href="http://www.mockito.org">mockito-all</a></td>
+<td>1.9.5</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://code.google.com/p/mockito/wiki/License">The MIT License</a></td></tr></table></div>
+<div class="section">
+<h3>provided<a name="provided"></a></h3><a name="provided"></a>
+<p>The following is a list of provided dependencies in the DependencyManagement of this project. These dependencies can be included in the submodules to compile the submodule, but should be provided by default when using the library:</p>
+<table border="0" class="bodyTable">
+<tr class="a">
+<th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Type</th>
+<th>License</th></tr>
+<tr class="b">
+<td>com.google.code.findbugs</td>
+<td><a class="externalLink" href="http://findbugs.sourceforge.net/">jsr305</a></td>
+<td>3.0.0</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0.txt">The Apache Software License, Version 2.0</a></td></tr>
+<tr class="a">
+<td>org.hibernate</td>
+<td><a class="externalLink" href="http://hibernate.org">hibernate-core</a></td>
+<td>4.3.6.Final</td>
+<td>jar</td>
+<td><a class="externalLink" href="http://www.gnu.org/licenses/lgpl-2.1.html">GNU Lesser General Public License</a></td></tr></table></div></div>
 	      </div>
 	    </article>
 	  </div>
@@ -179,8 +207,8 @@
                           <a href="dependency-info.html" title="Dependency Information">Dependency Information</a>
             </li>
                           <li class="none">
-                          <a href="dependency-management.html" title="Dependency Management">Dependency Management</a>
-            </li>
+            <strong>Dependency Management</strong>
+          </li>
                           <li class="none">
                           <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
             </li>
@@ -194,8 +222,8 @@
                           <a href="plugin-management.html" title="Plugin Management">Plugin Management</a>
             </li>
                           <li class="none">
-            <strong>Project Plugins</strong>
-          </li>
+                          <a href="plugins.html" title="Project Plugins">Project Plugins</a>
+            </li>
                           <li class="none">
                           <a href="team-list.html" title="Project Team">Project Team</a>
             </li>
