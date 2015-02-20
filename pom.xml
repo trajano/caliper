@@ -72,7 +72,7 @@
             <dependency>
                 <groupId>com.google.code.java-allocation-instrumenter</groupId>
                 <artifactId>java-allocation-instrumenter</artifactId>
-                <version>2.1</version>
+                <version>3.0</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -176,6 +176,13 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <argLine>-Xmx1500m -XX:MaxPermSize=384m</argLine>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
