@@ -20,12 +20,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 import static javax.persistence.AccessType.FIELD;
 
-import com.google.common.base.Objects;
-
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Type;
-import org.joda.time.Instant;
-
 import java.util.UUID;
 
 import javax.persistence.Access;
@@ -34,6 +28,13 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Type;
+import org.joda.time.Instant;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 /**
  * A single invocation of caliper.
@@ -99,7 +100,7 @@ public final class Run {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("id", id)
         .add("label", label)
         .add("startTime", startTime)

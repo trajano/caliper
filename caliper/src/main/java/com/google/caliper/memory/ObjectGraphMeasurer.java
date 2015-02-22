@@ -16,7 +16,10 @@
 
 package com.google.caliper.memory;
 
+import java.util.EnumSet;
+
 import com.google.caliper.memory.ObjectExplorer.Feature;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Predicate;
@@ -26,8 +29,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multiset;
-
-import java.util.EnumSet;
 
 /**
  * A tool that can qualitatively measure the footprint
@@ -128,7 +129,7 @@ public final class ObjectGraphMeasurer {
 
     @Override
     public String toString() {
-      return Objects.toStringHelper(this)
+      return MoreObjects.toStringHelper(this)
           .add("Objects", objects)
           .add("NonNullRefs", nonNullRefs)
           .add("NullRefs", nullRefs)

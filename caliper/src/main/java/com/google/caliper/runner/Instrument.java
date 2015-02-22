@@ -19,12 +19,15 @@ package com.google.caliper.runner;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.lang.reflect.Method;
+
 import com.google.caliper.bridge.AbstractLogMessageVisitor;
 import com.google.caliper.bridge.LogMessageVisitor;
 import com.google.caliper.bridge.StopMeasurementLogMessage;
 import com.google.caliper.model.InstrumentSpec;
 import com.google.caliper.model.Measurement;
 import com.google.caliper.worker.Worker;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Predicates;
 import com.google.common.collect.ArrayListMultimap;
@@ -34,8 +37,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Maps;
 import com.google.inject.Inject;
-
-import java.lang.reflect.Method;
 
 public abstract class Instrument {
   protected ImmutableMap<String, String> options;
@@ -101,7 +102,7 @@ public abstract class Instrument {
 
     @Override
     public String toString() {
-      return Objects.toStringHelper(Instrumentation.class)
+      return MoreObjects.toStringHelper(Instrumentation.class)
           .add("instrument", Instrument.this)
           .add("benchmarkMethod", benchmarkMethod)
           .toString();

@@ -17,27 +17,6 @@ package com.google.caliper.runner;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
-import com.google.caliper.bridge.CaliperControlLogMessage;
-import com.google.caliper.bridge.LogMessage;
-import com.google.caliper.options.CaliperOptions;
-import com.google.caliper.runner.ServerSocketService.OpenedSocket;
-import com.google.caliper.runner.StreamService.StreamItem.Kind;
-import com.google.caliper.util.Parser;
-import com.google.caliper.util.Stdout;
-import com.google.common.base.Objects;
-import com.google.common.base.Objects.ToStringHelper;
-import com.google.common.collect.Queues;
-import com.google.common.io.Closeables;
-import com.google.common.io.LineReader;
-import com.google.common.util.concurrent.AbstractService;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListeningExecutorService;
-import com.google.common.util.concurrent.MoreExecutors;
-import com.google.common.util.concurrent.Service; // for javadoc
-import com.google.common.util.concurrent.Service.State; // for javadoc
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.google.inject.Inject;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -54,6 +33,26 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
 import javax.annotation.Nullable;
+
+import com.google.caliper.bridge.CaliperControlLogMessage;
+import com.google.caliper.bridge.LogMessage;
+import com.google.caliper.options.CaliperOptions;
+import com.google.caliper.runner.ServerSocketService.OpenedSocket;
+import com.google.caliper.runner.StreamService.StreamItem.Kind;
+import com.google.caliper.util.Parser;
+import com.google.caliper.util.Stdout;
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.Queues;
+import com.google.common.io.Closeables;
+import com.google.common.io.LineReader;
+import com.google.common.util.concurrent.AbstractService;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListeningExecutorService;
+import com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.Service; // for javadoc
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.google.inject.Inject;
+// for javadoc
 
 /**
  * A {@link Service} that establishes a connection over a socket to a process and then allows 
@@ -325,7 +324,7 @@ import javax.annotation.Nullable;
     }
     
     @Override public String toString() {
-      ToStringHelper helper = Objects.toStringHelper(StreamItem.class);
+      com.google.common.base.MoreObjects.ToStringHelper helper = MoreObjects.toStringHelper(StreamItem.class);
       if (kind == Kind.DATA) {
         helper.addValue(logMessage);
       } else {

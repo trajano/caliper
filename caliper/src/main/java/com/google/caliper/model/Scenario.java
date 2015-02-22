@@ -21,14 +21,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 import static javax.persistence.AccessType.FIELD;
 
-import com.google.caliper.model.BenchmarkSpec.BenchmarkSpecFunnel;
-import com.google.caliper.model.Host.HostFunnel;
-import com.google.caliper.model.VmSpec.VmSpecFunnel;
-import com.google.common.base.Objects;
-
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Index;
-
 import javax.persistence.Access;
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
@@ -39,6 +31,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.QueryHint;
+
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Index;
+
+import com.google.caliper.model.BenchmarkSpec.BenchmarkSpecFunnel;
+import com.google.caliper.model.Host.HostFunnel;
+import com.google.caliper.model.VmSpec.VmSpecFunnel;
+import com.google.common.base.MoreObjects;
 
 /**
  * The combination of properties whose combination, when measured with a particular instrument,
@@ -122,7 +122,7 @@ public final class Scenario {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("environment", host)
         .add("vmSpec", vmSpec)
         .add("benchmarkSpec", benchmarkSpec)

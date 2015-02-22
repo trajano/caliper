@@ -18,10 +18,11 @@ package com.google.caliper.config;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.Map;
+
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
-
-import java.util.Map;
 
 /**
  * This is the configuration passed to the {@link com.google.caliper.api.ResultProcessor} by the
@@ -64,7 +65,7 @@ public class ResultProcessorConfig {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("className", className)
         .add("options", options)
         .toString();

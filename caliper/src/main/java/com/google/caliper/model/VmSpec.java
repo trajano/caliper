@@ -20,16 +20,6 @@ import static com.google.caliper.model.PersistentHashing.getPersistentHashFuncti
 import static javax.persistence.AccessType.FIELD;
 import static org.hibernate.annotations.SortType.NATURAL;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Maps;
-import com.google.common.hash.Funnel;
-import com.google.common.hash.PrimitiveSink;
-
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Sort;
-
 import java.util.Map;
 import java.util.SortedMap;
 
@@ -43,6 +33,16 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.QueryHint;
+
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Sort;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Maps;
+import com.google.common.hash.Funnel;
+import com.google.common.hash.PrimitiveSink;
 
 /**
  * A configuration of a virtual machine.
@@ -111,7 +111,7 @@ public final class VmSpec {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("properties", properties)
         .add("options", options)
         .toString();

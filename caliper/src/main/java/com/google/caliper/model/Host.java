@@ -21,18 +21,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import static javax.persistence.AccessType.FIELD;
 import static org.hibernate.annotations.SortType.NATURAL;
 
-import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Maps;
-import com.google.common.hash.Funnel;
-import com.google.common.hash.HashFunction;
-import com.google.common.hash.PrimitiveSink;
-
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Sort;
-
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.logging.Logger;
@@ -47,6 +35,18 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.QueryHint;
+
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Sort;
+
+import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Maps;
+import com.google.common.hash.Funnel;
+import com.google.common.hash.HashFunction;
+import com.google.common.hash.PrimitiveSink;
 
 /**
  * The performance-informing properties of the host on which a benchmark is run.
@@ -114,7 +114,7 @@ public final class Host {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("properties", properties)
         .toString();
   }

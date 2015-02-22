@@ -17,12 +17,16 @@ package com.google.caliper.options;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.concurrent.TimeUnit.MINUTES;
 
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
 import com.google.caliper.options.CommandLineParser.Leftovers;
 import com.google.caliper.options.CommandLineParser.Option;
 import com.google.caliper.util.InvalidCommandException;
 import com.google.caliper.util.ShortDuration;
 import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Optional;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ArrayListMultimap;
@@ -33,10 +37,6 @@ import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Ordering;
-
-import java.io.File;
-import java.util.List;
-import java.util.Map;
 
 final class ParsedOptions implements CaliperOptions {
   public static ParsedOptions from(String[] args) throws InvalidCommandException {
@@ -343,7 +343,7 @@ final class ParsedOptions implements CaliperOptions {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("benchmarkClassName", this.benchmarkClassName())
         .add("benchmarkMethodNames", this.benchmarkMethodNames())
         .add("benchmarkParameters", this.userParameters())

@@ -17,7 +17,6 @@
 package com.google.caliper.runner;
 
 import static java.util.logging.Level.SEVERE;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE;
 
 import java.io.PrintWriter;
 import java.net.URI;

@@ -22,14 +22,6 @@ import static com.google.common.base.Preconditions.checkState;
 import static javax.persistence.AccessType.FIELD;
 import static org.hibernate.annotations.SortType.NATURAL;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableSortedMap;
-import com.google.common.collect.Maps;
-
-import org.hibernate.annotations.Immutable;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Sort;
-
 import java.util.Map;
 import java.util.SortedMap;
 
@@ -44,6 +36,14 @@ import javax.persistence.NamedQuery;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.QueryHint;
+
+import org.hibernate.annotations.Immutable;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Sort;
+
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.Maps;
 
 /**
  * A specification by which the application of an instrument can be uniquely identified.
@@ -124,7 +124,7 @@ public final class InstrumentSpec {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("className", className)
         .add("options", options)
         .toString();

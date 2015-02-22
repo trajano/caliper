@@ -18,11 +18,12 @@ package com.google.caliper.runner;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.Map;
+
 import com.google.caliper.runner.Instrument.Instrumentation;
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSortedMap;
-
-import java.util.Map;
 
 /**
  * A single "premise" for making benchmark measurements: which class and method to invoke, which VM
@@ -71,7 +72,7 @@ final class Experiment {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper("")
+    return MoreObjects.toStringHelper("")
         .add("instrument", instrumentation.instrument())
         .add("benchmarkMethod", instrumentation.benchmarkMethod.getName())
         .add("vm", vm.name)

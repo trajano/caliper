@@ -17,16 +17,16 @@ package com.google.caliper.worker;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
+import java.util.Collection;
+
 import com.google.caliper.model.Measurement;
 import com.google.caliper.model.Value;
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultiset;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.Multiset.Entry;
 import com.google.common.collect.Multisets;
-
-import java.util.Collection;
 
 /**
  * A set of statistics about the allocations performed by a benchmark method.
@@ -128,7 +128,7 @@ class AllocationStats {
   }
   
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("allocationCount", allocationCount)
         .add("allocationSize", allocationSize)
         .add("reps", reps)

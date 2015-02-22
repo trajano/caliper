@@ -19,13 +19,14 @@ package com.google.caliper.config;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
-import com.google.caliper.model.InstrumentSpec;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMap;
-
 import java.util.Map;
 
 import javax.annotation.concurrent.Immutable;
+
+import com.google.caliper.model.InstrumentSpec;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * This is the configuration passed to the instrument by the user. This differs from the
@@ -69,7 +70,7 @@ public final class InstrumentConfig {
   }
 
   @Override public String toString() {
-    return Objects.toStringHelper(this)
+    return MoreObjects.toStringHelper(this)
         .add("className", className)
         .add("options", options)
         .toString();
