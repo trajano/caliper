@@ -8,7 +8,7 @@
     </parent>
     <groupId>net.trajano.caliper</groupId>
     <artifactId>caliper-parent</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>caliper parent</name>
     <description>Caliper: Microbenchmarking Framework for Java</description>
@@ -45,7 +45,7 @@
     <scm>
         <connection>scm:git:https://github.com/trajano/caliper</connection>
         <developerConnection>scm:git:ssh://git@github.com/trajano/caliper.git</developerConnection>
-        <tag>caliper-parent-1.2.1</tag>
+        <tag>HEAD</tag>
         <url>http://github.com/trajano/caliper</url>
     </scm>
     <issueManagement>
