@@ -33,6 +33,7 @@ import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableSet;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -193,8 +194,14 @@ public class RuntimeInstrumentTest {
         "", runner.getStderr().toString());
   }
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
-
+  @Ignore
   public void gcBeforeEachOptionIsReallyNecessary() throws Exception {
     // Verifies that we indeed get a GC warning if gcBeforeEach = false.
     runBenchmarkWithKnownHeap(false);

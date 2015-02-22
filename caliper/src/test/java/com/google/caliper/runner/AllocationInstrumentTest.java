@@ -12,6 +12,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -45,7 +46,14 @@ public class AllocationInstrumentTest {
     fakeJar.delete();
   }
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
+  @Ignore
   public void intrinsics() throws Exception {
     runner.forBenchmark(ArrayListGrowthBenchmark.class)
         .instrument("allocation")

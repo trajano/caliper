@@ -7,6 +7,7 @@ import com.google.caliper.BeforeExperiment;
 import com.google.caliper.Benchmark;
 import com.google.common.collect.Lists;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -78,8 +79,14 @@ public class BadUserCodeTest {
     }
   }
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
-
+  @Ignore
   public void testExceptionInMethod_notInDryRun() throws Exception {
     try {
       runner.forBenchmark(ExceptionLateInMethodBenchmark.class).run();
@@ -116,8 +123,14 @@ public class BadUserCodeTest {
     }
   }
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
-
+  @Ignore
   public void testNonDeterministicAllocation_noTrackAllocations() throws Exception {
     try {
       runner.forBenchmark(NonDeterministicAllocationBenchmark.class)
@@ -132,8 +145,14 @@ public class BadUserCodeTest {
     }
   }
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
-
+  @Ignore
   public void testNonDeterministicAllocation_trackAllocations() throws Exception {
     try {
       runner.forBenchmark(NonDeterministicAllocationBenchmark.class)

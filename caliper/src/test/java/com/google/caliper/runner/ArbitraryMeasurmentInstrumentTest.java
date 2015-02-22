@@ -18,15 +18,16 @@ package com.google.caliper.runner;
 
 import static org.junit.Assert.assertEquals;
 
-import com.google.caliper.model.ArbitraryMeasurement;
-import com.google.caliper.model.Measurement;
-import com.google.caliper.model.Value;
-import com.google.common.collect.Iterables;
-
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import com.google.caliper.model.ArbitraryMeasurement;
+import com.google.caliper.model.Measurement;
+import com.google.caliper.model.Value;
+import com.google.common.collect.Iterables;
 
 /**
  * Integration tests for the {@link ArbitraryMeasurementInstrument}
@@ -35,8 +36,14 @@ import org.junit.runners.JUnit4;
 public class ArbitraryMeasurmentInstrumentTest {
   @Rule public CaliperTestWatcher runner = new CaliperTestWatcher();
 
+  /**
+   * This test requires a lot of memory and will fail tests when the build
+   * machine does not have enough memory.
+   * 
+   * @throws Exception
+   */
   @Test
-
+  @Ignore
   public void testSuccess() throws Exception {
     runner.forBenchmark(TestBenchmark.class)
         .instrument("arbitrary")
